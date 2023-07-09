@@ -11,9 +11,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {/*  semantic html tags structure*/}
-        <header className="space-x-4 text-center bg-gray-400 py-2">
-          <Link href="/">Home</Link>
-          <Link href="/blog">Blog</Link>
+        <header className="space-x-4 text-center bg-gray-100 border-b-2 py-2">
+          <Link className="hover:text-orange-500 focus:text-orange-600 duration-500" href="/">Home</Link>
+          <Link className="hover:text-orange-500 focus:text-orange-600 duration-500" href="/blog">Blog</Link>
         </header>
         <main className="w-[80%] mx-auto my-10">
           {children}
