@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <footer className="py-2 text-center bg-gray-300">
-          &copy; {`${new Date().getFullYear()}`} | By Mohammad Tahir Khan
+          &copy; {`${new Date().getFullYear()}`} | By BALOCH
         </footer>
       </body>
     </html>
