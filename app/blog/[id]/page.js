@@ -1,3 +1,21 @@
+
+
+
+export const generateStaticParams = async () => {
+  const data = await fetch("https://dummyjson.com/posts", {
+    next: {
+      revalidate: 3600,
+    },
+  });
+  const posts = await data.json();
+
+  return posts.posts.map((post) => ({
+    params: {
+      postId: post.id.toString(),
+    },
+  }));
+};
+
 async function getPost(id) {
   const post = await fetch(`https://dummyjson.com/posts/${id}`);
 
