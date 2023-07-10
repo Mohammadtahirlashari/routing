@@ -13,7 +13,6 @@ async function getPosts(){
 
 export default async function Blog() {
     const posts = await getPosts();
-    console.log(posts)
   return (
     <>
       <h1 className="text-center text-4xl mb-10">Latest Blog Posts</h1>

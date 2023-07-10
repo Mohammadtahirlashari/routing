@@ -1,21 +1,5 @@
 
-
-
-export const generateStaticParams = async () => {
-  const data = await fetch("https://dummyjson.com/posts", {
-    next: {
-      revalidate: 3600,
-    },
-  });
-  const posts = await data.json();
-
-  return posts.posts.map((post) => ({
-    params: {
-      postId: post.id.toString(),
-    },
-  }));
-};
-
+export const dynamicParams = false;
 async function getPost(id) {
   const post = await fetch(`https://dummyjson.com/posts/${id}`);
 
@@ -25,8 +9,15 @@ async function getPost(id) {
 
   return post.json();
 }
+export async function generateStaticParams() {
+  const data = await fetch("https://dummyjson.com/posts?limit=150");
+  const posts = await data.json();
+  return posts.posts.map((post) => ({
+      id: `${post.id}`,
+  }));
+};
 
-export default async function Blog({params}) {
+export default async function Id({params}) {
   const post = await getPost(params.id);
   const title = post.title;
   const body = post.body;
